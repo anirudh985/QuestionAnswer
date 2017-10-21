@@ -10,7 +10,6 @@ import Post from './Post';
 import Comment from './Comment';
 import Answer from './Answer';
 import Tag from './Tag';
-import resolvers from '../resolvers/resolvers';
 
 const RootQuery = `
   type RootQuery {
@@ -26,8 +25,16 @@ const SchemaDefinition = `
     query: RootQuery
   }
 `;
+// const typeDefs = `
+// type Query {
+//   getUserProfile(preferredName: String!): User
+// }
+// `;
+
 
 const typeDefs = [User, Post, Comment, Answer, Tag, RootQuery, SchemaDefinition];
+
+// const typeDefs = [User, Post, Comment, Answer, Tag, Query];
 
 /* const typeDefs = `
   type Query {
@@ -38,7 +45,8 @@ const typeDefs = [User, Post, Comment, Answer, Tag, RootQuery, SchemaDefinition]
 `;
 */
 
-const schema = makeExecutableSchema({ typeDefs, resolvers });
+const schema = makeExecutableSchema({ typeDefs });
+// const schema = makeExecutableSchema({ typeDefs, resolvers });
 
 // addMockFunctionsToSchema({ schema, mocks });
 
